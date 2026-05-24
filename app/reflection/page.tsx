@@ -1,15 +1,15 @@
 import { PageHeader } from "@/components/PageHeader";
-import { ReflectionPanel } from "@/components/ReflectionPanel";
+import { ReflectionDashboard } from "@/components/ReflectionDashboard";
 
 export default function ReflectionPage() {
   return (
     <div className="space-y-8">
       <PageHeader
         eyebrow="Reflection"
-        title="Weekly reflection"
-        description="A static space for future pattern summaries that preserve user agency."
+        title="Reflection and insights"
+        description="A calm, static dashboard for noticing patterns without prediction, certainty, or generated guidance."
       />
-      <ReflectionPanel />
+      <ReflectionDashboard />
     </div>
   );
 }
