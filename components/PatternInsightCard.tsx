@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import { ui } from "@/components/uiStyles";
 
 type PatternInsightCardProps = {
   title: string;
@@ -16,15 +17,13 @@ export function PatternInsightCard({
   items,
 }: PatternInsightCardProps) {
   return (
-    <article className="rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-2xl shadow-black/20 backdrop-blur">
+    <article className={ui.surface}>
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-400">
-            {label}
-          </p>
+          <p className={ui.eyebrow}>{label}</p>
           <h2 className="mt-2 text-xl font-semibold text-white">{title}</h2>
         </div>
-        <div className="rounded-md border border-teal-200/20 bg-teal-200/10 p-2 text-teal-100">
+        <div className={ui.iconTileSmall}>
           <Icon className="h-5 w-5" aria-hidden="true" />
         </div>
       </div>
@@ -33,7 +32,7 @@ export function PatternInsightCard({
         {items.map((item) => (
           <li
             key={item}
-            className="rounded-md border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-stone-300"
+            className={`${ui.inset} px-4 py-3 text-sm leading-6 text-stone-300`}
           >
             {item}
           </li>

@@ -5,6 +5,7 @@ import {
   type MoodEnergy,
   moodEnergyOptions,
 } from "@/components/MoodEnergyTag";
+import { ui } from "@/components/uiStyles";
 
 export type JournalFormValues = {
   body: string;
@@ -43,12 +44,10 @@ export function JournalComposer({
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-2xl shadow-black/20 backdrop-blur"
+      className={ui.surface}
     >
       <div>
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-400">
-          {isEditing ? "Revise entry" : "New entry"}
-        </p>
+        <p className={ui.eyebrow}>{isEditing ? "Revise entry" : "New entry"}</p>
         <h2 className="mt-2 text-xl font-semibold text-white">
           {isEditing ? "Edit this reflection" : "Add a journal note"}
         </h2>
@@ -66,7 +65,7 @@ export function JournalComposer({
             onChange={(event) => updateField("body", event.target.value)}
             placeholder="Today I noticed..."
             rows={6}
-            className="mt-2 w-full resize-none rounded-md border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-stone-500 focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+            className={`mt-2 resize-none ${ui.field}`}
           />
         </label>
 
@@ -77,7 +76,7 @@ export function JournalComposer({
             onChange={(event) =>
               updateField("mood", event.target.value as MoodEnergy)
             }
-            className="mt-2 w-full rounded-md border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+            className={`mt-2 ${ui.field}`}
           >
             {moodEnergyOptions.map((mood) => (
               <option key={mood} value={mood}>
@@ -95,11 +94,11 @@ export function JournalComposer({
               updateField("intentionLink", event.target.value)
             }
             placeholder="Connected intention, if any..."
-            className="mt-2 w-full rounded-md border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-stone-500 focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+            className={`mt-2 ${ui.field}`}
           />
         </label>
 
-        <label className="flex items-start gap-3 rounded-md border border-white/10 bg-black/20 p-4 text-sm text-stone-200">
+        <label className={`${ui.inset} flex items-start gap-3 p-4 text-sm text-stone-200`}>
           <input
             type="checkbox"
             checked={values.isGratitude}
@@ -123,7 +122,7 @@ export function JournalComposer({
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         <button
           type="submit"
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-teal-100 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+          className={ui.primaryButton}
         >
           {isEditing ? (
             <Check className="h-4 w-4" aria-hidden="true" />
@@ -137,7 +136,7 @@ export function JournalComposer({
           <button
             type="button"
             onClick={onCancelEdit}
-            className="inline-flex items-center justify-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-stone-200 transition hover:border-white/20 hover:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-teal-200/30"
+            className={ui.secondaryButton}
           >
             <X className="h-4 w-4" aria-hidden="true" />
             Cancel

@@ -1,10 +1,11 @@
 import { ShieldCheck } from "lucide-react";
+import { ui } from "@/components/uiStyles";
 
 export function FutureAIReflectionNotice() {
   return (
-    <section className="rounded-lg border border-teal-200/20 bg-teal-200/10 p-5 shadow-2xl shadow-black/20 backdrop-blur">
+    <section className="rounded-lg border border-teal-200/20 bg-teal-200/10 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.24)] backdrop-blur">
       <div className="flex items-start gap-4">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-teal-200/25 bg-black/20 text-teal-100">
+        <div className={ui.iconTile}>
           <ShieldCheck className="h-5 w-5" aria-hidden="true" />
         </div>
         <div>

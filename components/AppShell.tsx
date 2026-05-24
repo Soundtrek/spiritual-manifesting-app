@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigationItems } from "@/lib/navigation";
+import { ui } from "@/components/uiStyles";
 
 function navClass(isActive: boolean) {
   return [
     "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition",
+    ui.focusLink,
     isActive
       ? "bg-white/12 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)]"
       : "text-stone-300 hover:bg-white/8 hover:text-white",
@@ -18,8 +20,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen">
-      <aside className="fixed inset-y-0 left-0 hidden w-72 border-r border-white/10 bg-black/20 px-5 py-6 backdrop-blur-xl lg:block">
-        <Link href="/" className="block rounded-md px-2 py-1">
+      <aside className="fixed inset-y-0 left-0 hidden w-72 border-r border-white/10 bg-black/25 px-5 py-6 backdrop-blur-xl lg:block">
+        <Link href="/" className={`block rounded-md px-2 py-1 ${ui.focusLink}`}>
           <div className="text-xs font-medium uppercase tracking-[0.2em] text-teal-200">
             SMA
           </div>
@@ -44,9 +46,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </nav>
       </aside>
 
-      <header className="sticky top-0 z-20 border-b border-white/10 bg-[#07080f]/82 px-4 py-3 backdrop-blur-xl lg:hidden">
+      <header className="sticky top-0 z-20 border-b border-white/10 bg-[#07080f]/88 px-4 py-3 backdrop-blur-xl lg:hidden">
         <div className="flex items-center justify-between gap-4">
-          <Link href="/" className="min-w-0">
+          <Link href="/" className={`min-w-0 rounded-md ${ui.focusLink}`}>
             <div className="text-xs font-medium uppercase tracking-[0.18em] text-teal-200">
               SMA
             </div>
@@ -70,9 +72,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 href={item.href}
                 className={[
                   "flex min-w-12 items-center justify-center rounded-md border px-3 py-2",
+                  ui.focusLink,
                   isActive
                     ? "border-teal-200/40 bg-teal-200/12 text-teal-100"
-                    : "border-white/10 bg-white/5 text-stone-300",
+                    : "border-white/10 bg-white/5 text-stone-300 hover:border-white/20 hover:bg-white/8 hover:text-white",
                 ].join(" ")}
                 aria-label={item.label}
                 title={item.label}

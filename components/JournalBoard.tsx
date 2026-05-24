@@ -12,6 +12,7 @@ import {
 import { type JournalEntry } from "@/components/JournalEntryCard";
 import { JournalTimeline } from "@/components/JournalTimeline";
 import { SectionLabel } from "@/components/SectionLabel";
+import { ui } from "@/components/uiStyles";
 
 const emptyForm: JournalFormValues = {
   body: "",
@@ -137,23 +138,23 @@ export function JournalBoard() {
           onCancelEdit={resetForm}
         />
 
-        <section className="rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-2xl shadow-black/20 backdrop-blur">
+        <section className={ui.surface}>
           <SectionLabel>Session summary</SectionLabel>
           <dl className="mt-5 grid grid-cols-2 gap-3 text-center text-sm">
-            <div className="rounded-md border border-white/10 bg-black/20 p-3">
+            <div className={`${ui.inset} p-3`}>
               <dt className="text-stone-400">Entries</dt>
               <dd className="mt-1 text-lg font-semibold text-white">
                 {entries.length}
               </dd>
             </div>
-            <div className="rounded-md border border-white/10 bg-black/20 p-3">
+            <div className={`${ui.inset} p-3`}>
               <dt className="text-stone-400">Gratitude</dt>
               <dd className="mt-1 text-lg font-semibold text-white">
                 {gratitudeCount}
               </dd>
             </div>
           </dl>
-          <p className="mt-4 rounded-md border border-white/10 bg-black/20 p-4 text-sm leading-6 text-stone-300">
+          <p className={`${ui.inset} mt-4 p-4 text-sm leading-6 text-stone-300`}>
             This journal uses temporary browser state only. Entries are not
             saved, synced, analyzed, or sent anywhere.
           </p>

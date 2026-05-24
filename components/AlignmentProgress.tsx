@@ -1,3 +1,5 @@
+import { ui } from "@/components/uiStyles";
+
 type AlignmentProgressProps = {
   completedSteps: number;
   totalSteps: number;
@@ -10,10 +12,10 @@ export function AlignmentProgress({
   const progress = Math.round((completedSteps / totalSteps) * 100);
 
   return (
-    <aside className="rounded-lg border border-white/10 bg-black/20 p-5 backdrop-blur">
+    <aside className={ui.surfaceSoft}>
       <div className="flex items-center justify-between gap-4">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-teal-200">
+          <p className={ui.eyebrowAccent}>
             Flow progress
           </p>
           <p className="mt-2 text-2xl font-semibold text-white">{progress}%</p>

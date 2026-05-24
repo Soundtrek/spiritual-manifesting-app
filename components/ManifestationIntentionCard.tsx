@@ -4,6 +4,7 @@ import {
   IntentionStatusPill,
   type IntentionStatus,
 } from "@/components/IntentionStatusPill";
+import { ui } from "@/components/uiStyles";
 
 export type BoardIntention = {
   id: string;
@@ -30,7 +31,7 @@ export function ManifestationIntentionCard({
   onStatusChange,
 }: ManifestationIntentionCardProps) {
   return (
-    <article className="rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-2xl shadow-black/20 backdrop-blur">
+    <article className={ui.surface}>
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
@@ -47,7 +48,7 @@ export function ManifestationIntentionCard({
             type="button"
             onClick={() => onEdit(intention)}
             aria-label={`Edit ${intention.title}`}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-white/[0.04] text-stone-200 transition hover:border-teal-200/30 hover:bg-teal-200/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-teal-200/30"
+            className={`${ui.iconButton} hover:border-teal-200/30 hover:bg-teal-200/10`}
           >
             <Edit3 className="h-4 w-4" aria-hidden="true" />
           </button>
@@ -55,7 +56,7 @@ export function ManifestationIntentionCard({
             type="button"
             onClick={() => onDelete(intention.id)}
             aria-label={`Delete ${intention.title}`}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-white/[0.04] text-stone-200 transition hover:border-rose-200/30 hover:bg-rose-200/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-rose-200/30"
+            className={`${ui.iconButton} hover:border-rose-200/30 hover:bg-rose-200/10 focus:ring-rose-200/30`}
           >
             <Trash2 className="h-4 w-4" aria-hidden="true" />
           </button>
@@ -88,7 +89,7 @@ export function ManifestationIntentionCard({
                 event.target.value as IntentionStatus,
               )
             }
-            className="mt-2 w-full rounded-md border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+            className={`mt-2 ${ui.field}`}
           >
             {statusOptions.map((status) => (
               <option key={status} value={status}>

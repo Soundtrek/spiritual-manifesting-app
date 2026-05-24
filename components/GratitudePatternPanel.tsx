@@ -1,15 +1,14 @@
 import { Heart } from "lucide-react";
+import { ui } from "@/components/uiStyles";
 
 const gratitudeTopics = ["Rest", "Clear talks", "Small progress"];
 
 export function GratitudePatternPanel() {
   return (
-    <section className="rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-2xl shadow-black/20 backdrop-blur">
+    <section className={ui.surface}>
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-400">
-            Gratitude pattern
-          </p>
+          <p className={ui.eyebrow}>Gratitude pattern</p>
           <h2 className="mt-2 text-xl font-semibold text-white">
             Gratitude placeholder
           </h2>
@@ -28,7 +27,7 @@ export function GratitudePatternPanel() {
         {gratitudeTopics.map((topic) => (
           <span
             key={topic}
-            className="rounded-md border border-white/10 bg-black/20 px-3 py-2 text-sm text-stone-300"
+            className={`${ui.inset} px-3 py-2 text-sm text-stone-300`}
           >
             {topic}
           </span>

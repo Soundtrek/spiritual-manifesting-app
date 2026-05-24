@@ -1,6 +1,7 @@
 import type { FormEvent } from "react";
 import { Check, Plus, X } from "lucide-react";
 import type { IntentionStatus } from "@/components/IntentionStatusPill";
+import { ui } from "@/components/uiStyles";
 
 export type IntentionFormValues = {
   title: string;
@@ -42,10 +43,10 @@ export function IntentionForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-2xl shadow-black/20 backdrop-blur"
+      className={ui.surface}
     >
       <div>
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-400">
+        <p className={ui.eyebrow}>
           {isEditing ? "Revise intention" : "New intention"}
         </p>
         <h2 className="mt-2 text-xl font-semibold text-white">
@@ -64,7 +65,7 @@ export function IntentionForm({
             value={values.title}
             onChange={(event) => updateField("title", event.target.value)}
             placeholder="I want to practice..."
-            className="mt-2 w-full rounded-md border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-stone-500 focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+            className={`mt-2 ${ui.field}`}
           />
         </label>
 
@@ -74,7 +75,7 @@ export function IntentionForm({
             value={values.emotion}
             onChange={(event) => updateField("emotion", event.target.value)}
             placeholder="Steady, open, clear..."
-            className="mt-2 w-full rounded-md border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-stone-500 focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+            className={`mt-2 ${ui.field}`}
           />
         </label>
 
@@ -85,7 +86,7 @@ export function IntentionForm({
             onChange={(event) => updateField("why", event.target.value)}
             placeholder="This matters because..."
             rows={3}
-            className="mt-2 w-full resize-none rounded-md border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-stone-500 focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+            className={`mt-2 resize-none ${ui.field}`}
           />
         </label>
 
@@ -96,7 +97,7 @@ export function IntentionForm({
             onChange={(event) => updateField("note", event.target.value)}
             placeholder="One small thing I noticed or tried..."
             rows={3}
-            className="mt-2 w-full resize-none rounded-md border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-stone-500 focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+            className={`mt-2 resize-none ${ui.field}`}
           />
         </label>
 
@@ -107,7 +108,7 @@ export function IntentionForm({
             onChange={(event) =>
               updateField("status", event.target.value as IntentionStatus)
             }
-            className="mt-2 w-full rounded-md border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+            className={`mt-2 ${ui.field}`}
           >
             {statusOptions.map((status) => (
               <option key={status} value={status}>
@@ -121,7 +122,7 @@ export function IntentionForm({
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         <button
           type="submit"
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-teal-100 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+          className={ui.primaryButton}
         >
           {isEditing ? (
             <Check className="h-4 w-4" aria-hidden="true" />
@@ -135,7 +136,7 @@ export function IntentionForm({
           <button
             type="button"
             onClick={onCancelEdit}
-            className="inline-flex items-center justify-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-stone-200 transition hover:border-white/20 hover:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-teal-200/30"
+            className={ui.secondaryButton}
           >
             <X className="h-4 w-4" aria-hidden="true" />
             Cancel

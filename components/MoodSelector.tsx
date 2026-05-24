@@ -1,4 +1,5 @@
 import { Cloud, Flame, Leaf, Moon, Sunrise } from "lucide-react";
+import { ui } from "@/components/uiStyles";
 
 const moods = [
   { value: "soft", label: "Soft", icon: Leaf },
@@ -26,7 +27,8 @@ export function MoodSelector({ value, onChange }: MoodSelectorProps) {
             type="button"
             onClick={() => onChange(mood.value)}
             className={[
-              "flex min-h-24 flex-col items-start justify-between rounded-md border p-4 text-left transition focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-slate-950",
+              "flex min-h-24 flex-col items-start justify-between rounded-md border p-4 text-left transition",
+              ui.focusLink,
               isSelected
                 ? "border-teal-200/50 bg-teal-200/14 text-white"
                 : "border-white/10 bg-white/[0.04] text-stone-300 hover:border-white/20 hover:bg-white/[0.07]",

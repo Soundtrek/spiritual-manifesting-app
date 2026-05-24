@@ -18,6 +18,7 @@ import { MoodSelector } from "@/components/MoodSelector";
 import { PageHeader } from "@/components/PageHeader";
 import { ReflectionTextarea } from "@/components/ReflectionTextarea";
 import { SectionLabel } from "@/components/SectionLabel";
+import { ui } from "@/components/uiStyles";
 
 export default function DailyPage() {
   const [mood, setMood] = useState("");
@@ -101,14 +102,14 @@ export default function DailyPage() {
         <div className="space-y-5 xl:sticky xl:top-10 xl:self-start">
           <AlignmentProgress completedSteps={completedSteps} totalSteps={4} />
 
-          <section className="rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-2xl shadow-black/20 backdrop-blur">
+          <section className={ui.surface}>
             <div className="flex items-start gap-3">
               <CheckCircle2
                 className="mt-1 h-5 w-5 shrink-0 text-teal-100"
                 aria-hidden="true"
               />
               <div>
-                <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-400">
+                <p className={ui.eyebrow}>
                   Completion
                 </p>
                 <h2 className="mt-2 text-xl font-semibold text-white">
@@ -145,7 +146,7 @@ export default function DailyPage() {
               </div>
             </dl>
 
-            <div className="mt-6 rounded-md border border-white/10 bg-black/20 p-4 text-sm leading-6 text-stone-300">
+            <div className={`${ui.inset} mt-6 p-4 text-sm leading-6 text-stone-300`}>
               This summary is temporary UI state only. It is not saved, synced, or
               analyzed.
             </div>

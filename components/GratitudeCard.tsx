@@ -1,3 +1,5 @@
+import { ui } from "@/components/uiStyles";
+
 type GratitudeCardProps = {
   values: string[];
   onChange: (index: number, value: string) => void;
@@ -9,7 +11,7 @@ export function GratitudeCard({ values, onChange }: GratitudeCardProps) {
       {values.map((value, index) => (
         <label
           key={index}
-          className="block rounded-md border border-white/10 bg-black/20 p-4"
+          className={`${ui.inset} block p-4`}
         >
           <span className="text-xs font-medium uppercase tracking-[0.16em] text-stone-400">
             Gratitude {index + 1}

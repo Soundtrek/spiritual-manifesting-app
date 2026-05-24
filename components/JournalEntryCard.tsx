@@ -1,6 +1,7 @@
 import { Edit3, Link2, Trash2 } from "lucide-react";
 import { GratitudeMarker } from "@/components/GratitudeMarker";
 import { MoodEnergyTag, type MoodEnergy } from "@/components/MoodEnergyTag";
+import { ui } from "@/components/uiStyles";
 
 export type JournalEntry = {
   id: string;
@@ -36,7 +37,7 @@ export function JournalEntryCard({
     : null;
 
   return (
-    <article className="rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-2xl shadow-black/20 backdrop-blur">
+    <article className={ui.surface}>
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
@@ -54,7 +55,7 @@ export function JournalEntryCard({
             type="button"
             onClick={() => onEdit(entry)}
             aria-label="Edit journal entry"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-white/[0.04] text-stone-200 transition hover:border-teal-200/30 hover:bg-teal-200/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-teal-200/30"
+            className={`${ui.iconButton} hover:border-teal-200/30 hover:bg-teal-200/10`}
           >
             <Edit3 className="h-4 w-4" aria-hidden="true" />
           </button>
@@ -62,7 +63,7 @@ export function JournalEntryCard({
             type="button"
             onClick={() => onDelete(entry.id)}
             aria-label="Delete journal entry"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-white/[0.04] text-stone-200 transition hover:border-rose-200/30 hover:bg-rose-200/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-rose-200/30"
+            className={`${ui.iconButton} hover:border-rose-200/30 hover:bg-rose-200/10 focus:ring-rose-200/30`}
           >
             <Trash2 className="h-4 w-4" aria-hidden="true" />
           </button>
@@ -74,7 +75,7 @@ export function JournalEntryCard({
       </p>
 
       {entry.intentionLink ? (
-        <div className="mt-5 flex items-start gap-2 rounded-md border border-white/10 bg-black/20 p-4 text-sm leading-6 text-stone-300">
+        <div className={`${ui.inset} mt-5 flex items-start gap-2 p-4 text-sm leading-6 text-stone-300`}>
           <Link2 className="mt-0.5 h-4 w-4 shrink-0 text-teal-100" aria-hidden="true" />
           <span>
             <span className="font-medium text-stone-100">Intention link: </span>

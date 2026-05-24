@@ -1,16 +1,15 @@
 import { Sparkles } from "lucide-react";
+import { ui } from "@/components/uiStyles";
 
 export function GroundedReframePanel() {
   return (
-    <section className="rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-2xl shadow-black/20 backdrop-blur">
+    <section className={ui.surface}>
       <div className="flex items-start gap-4">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-teal-200/20 bg-teal-200/10 text-teal-100">
+        <div className={ui.iconTile}>
           <Sparkles className="h-5 w-5" aria-hidden="true" />
         </div>
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-400">
-            Future support
-          </p>
+          <p className={ui.eyebrow}>Future support</p>
           <h2 className="mt-2 text-xl font-semibold text-white">
             Grounded reframe space
           </h2>

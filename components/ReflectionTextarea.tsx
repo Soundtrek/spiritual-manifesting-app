@@ -1,3 +1,5 @@
+import { ui } from "@/components/uiStyles";
+
 type ReflectionTextareaProps = {
   value: string;
   onChange: (value: string) => void;
@@ -14,7 +16,7 @@ export function ReflectionTextarea({ value, onChange }: ReflectionTextareaProps)
         onChange={(event) => onChange(event.target.value)}
         placeholder="Right now I notice..."
         rows={5}
-        className="mt-3 w-full resize-none rounded-md border border-white/10 bg-black/20 px-4 py-3 leading-7 text-white outline-none transition placeholder:text-stone-500 focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+        className={`mt-3 resize-none leading-7 ${ui.field}`}
       />
     </label>
   );

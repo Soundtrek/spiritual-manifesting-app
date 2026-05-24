@@ -4,6 +4,7 @@ import {
   type MoodEnergy,
   moodEnergyOptions,
 } from "@/components/MoodEnergyTag";
+import { ui } from "@/components/uiStyles";
 
 export type JournalFilterValues = {
   search: string;
@@ -30,12 +31,10 @@ export function JournalFilters({
   }
 
   return (
-    <section className="rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-2xl shadow-black/20 backdrop-blur">
+    <section className={ui.surface}>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-400">
-            Filters
-          </p>
+          <p className={ui.eyebrow}>Filters</p>
           <h2 className="mt-2 text-xl font-semibold text-white">
             Find a reflection
           </h2>
@@ -57,7 +56,7 @@ export function JournalFilters({
               value={values.search}
               onChange={(event) => updateField("search", event.target.value)}
               placeholder="Search entries or linked intentions..."
-              className="w-full rounded-md border border-white/10 bg-black/20 py-3 pl-10 pr-4 text-white outline-none transition placeholder:text-stone-500 focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+              className={ui.searchField}
             />
           </span>
         </label>
@@ -69,7 +68,7 @@ export function JournalFilters({
             onChange={(event) =>
               updateField("mood", event.target.value as "all" | MoodEnergy)
             }
-            className="mt-2 w-full rounded-md border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+            className={`mt-2 ${ui.field}`}
           >
             <option value="all">All moods</option>
             {moodEnergyOptions.map((mood) => (
@@ -81,7 +80,7 @@ export function JournalFilters({
         </label>
       </div>
 
-      <label className="mt-4 flex items-center gap-3 rounded-md border border-white/10 bg-black/20 p-4 text-sm text-stone-200">
+      <label className={`${ui.inset} mt-4 flex items-center gap-3 p-4 text-sm text-stone-200`}>
         <input
           type="checkbox"
           checked={values.gratitudeOnly}

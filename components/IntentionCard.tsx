@@ -1,3 +1,5 @@
+import { ui } from "@/components/uiStyles";
+
 type IntentionCardProps = {
   value: string;
   onChange: (value: string) => void;
@@ -20,7 +22,7 @@ export function IntentionCard({ value, onChange }: IntentionCardProps) {
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder="I want to meet today with..."
-        className="w-full rounded-md border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-stone-500 focus:border-teal-200/50 focus:ring-2 focus:ring-teal-200/20"
+        className={ui.field}
       />
       <div className="grid gap-3 md:grid-cols-3">
         {prompts.map((prompt) => (
@@ -28,7 +30,7 @@ export function IntentionCard({ value, onChange }: IntentionCardProps) {
             key={prompt}
             type="button"
             onClick={() => onChange(prompt)}
-            className="rounded-md border border-white/10 bg-white/[0.04] px-4 py-3 text-left text-sm leading-6 text-stone-300 transition hover:border-teal-200/30 hover:bg-teal-200/10 hover:text-white"
+            className={`rounded-md border border-white/10 bg-white/[0.05] px-4 py-3 text-left text-sm leading-6 text-stone-300 transition hover:border-teal-200/30 hover:bg-teal-200/10 hover:text-white ${ui.focusLink}`}
           >
             {prompt}
           </button>
