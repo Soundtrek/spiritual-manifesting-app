@@ -2,19 +2,19 @@
 
 ## Current Module
 
-Module 05 - Daily Alignment Foundation
+Documentation Path Alignment after Module 05
 
 ## Status
 
-The Daily Alignment foundation is complete. The `/daily` page now presents a static, local-state flow for mood, intention, gratitude, affirmation placeholder, short reflection, progress, and session summary.
+The Daily Alignment foundation remains complete. A follow-up documentation maintenance pass repaired missing canonical read-first paths for future Codex workflows.
 
 ## What Changed
 
-- Replaced the `/daily` placeholder with a calm Daily Alignment flow.
-- Added reusable Daily Alignment components: `AlignmentStepCard`, `AlignmentProgress`, `MoodSelector`, `IntentionCard`, `GratitudeCard`, `AffirmationCard`, and `ReflectionTextarea`.
-- Used local React state only; the summary and progress reset with the page session.
-- Kept the affirmation section static and non-generated.
-- Validated with typecheck, lint, and production build.
+- Verified the expected Module 05 read-first docs were missing from the checkout.
+- Created canonical docs for Module 05, MVP boundaries, UI style, interaction principles, safe language, and Codex prompt capture policy.
+- Created `docs/MASTER_INDEX.md`, `docs/SOURCE_OF_TRUTH_MATRIX.md`, and `docs/DOCUMENT_RELATIONSHIP_MAP.md`.
+- Created `prompts/CODEX_PROMPT_TEMPLATE.md` with read-first path verification before implementation.
+- Preserved the completed `/daily` implementation without app code changes.
 
 ## Boundaries Preserved
 
@@ -23,7 +23,8 @@ The Daily Alignment foundation is complete. The `/daily` page now presents a sta
 - No database or Supabase integration added.
 - No payments, notifications, or production secrets added.
 - No new major dependencies added.
+- No app code or UI components changed in the documentation alignment pass.
 
 ## Next Suggested Step
 
-Review the Daily Alignment flow in-browser for copy and spacing. A later module can decide whether entries should persist, but this pass intentionally leaves storage and AI guidance out of scope.
+Use `docs/MASTER_INDEX.md` and `prompts/CODEX_PROMPT_TEMPLATE.md` before the next module. A later module can decide whether entries should persist, but the current documented boundary still leaves storage and AI guidance out of scope.

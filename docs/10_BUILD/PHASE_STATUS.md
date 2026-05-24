@@ -54,3 +54,34 @@ Explicitly not implemented:
 - No Supabase integration.
 - No payments.
 - No notifications.
+
+## Documentation Path Alignment after Module 05
+
+Status: Complete
+
+Date: 2026-05-24
+
+Completed in this pass:
+
+- Verified the expected read-first documentation paths for Codex workflows were missing.
+- Created canonical source-of-truth docs at the expected paths.
+- Created `docs/MASTER_INDEX.md`, `docs/SOURCE_OF_TRUTH_MATRIX.md`, and `docs/DOCUMENT_RELATIONSHIP_MAP.md`.
+- Created `prompts/CODEX_PROMPT_TEMPLATE.md` with a required read-first path verification step before implementation.
+- Updated prompt log and handover docs to record the repair.
+
+Validation:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+
+Explicitly not implemented:
+
+- No app code changes.
+- No UI component changes.
+- No features.
+- No AI logic or model calls.
+- No authentication.
+- No API routes.
+- No database access or persistence.
+- No Supabase integration.

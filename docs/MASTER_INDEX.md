@@ -1,0 +1,27 @@
+# Master Index
+
+Canonical path: `docs/MASTER_INDEX.md`
+
+## Read-First Docs
+
+- `docs/10_BUILD/MODULE_05_DAILY_ALIGNMENT.md`
+- `docs/10_BUILD/MVP_HARD_BOUNDARY.md`
+- `docs/06_USER_EXPERIENCE/UI_STYLE_CREWFINDER_INSPIRED.md`
+- `docs/06_USER_EXPERIENCE/UI_INTERACTION_PRINCIPLES.md`
+- `docs/01_GOVERNANCE/SAFE_LANGUAGE_GUIDE.md`
+- `docs/09_OPERATIONS/CODEX_PROMPT_CAPTURE_POLICY.md`
+- `prompts/CODEX_PROMPT_TEMPLATE.md`
+
+## Project Source Docs
+
+- `docs/PROJECT_BRIEF.md`
+- `docs/MVP_SCOPE.md`
+- `docs/SAFETY_AND_ETHICS.md`
+- `docs/AI_LAYER_PLAN.md`
+- `docs/10_BUILD/PHASE_STATUS.md`
+- `handover/CURRENT_HANDOVER.md`
+
+## Navigation Docs
+
+- `docs/SOURCE_OF_TRUTH_MATRIX.md`
+- `docs/DOCUMENT_RELATIONSHIP_MAP.md`
