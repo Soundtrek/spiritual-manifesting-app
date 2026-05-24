@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   JournalComposer,
   type JournalFormValues,
@@ -11,8 +11,14 @@ import {
 } from "@/components/JournalFilters";
 import { type JournalEntry } from "@/components/JournalEntryCard";
 import { JournalTimeline } from "@/components/JournalTimeline";
+import type { MoodEnergy } from "@/components/MoodEnergyTag";
 import { SectionLabel } from "@/components/SectionLabel";
 import { ui } from "@/components/uiStyles";
+import {
+  localStoreKeys,
+  readLocalStore,
+  writeLocalStore,
+} from "@/lib/localStore";
 
 const emptyForm: JournalFormValues = {
   body: "",
@@ -27,11 +33,71 @@ const emptyFilters: JournalFilterValues = {
   gratitudeOnly: false,
 };
 
+const moodEnergyValues: MoodEnergy[] = [
+  "steady",
+  "low",
+  "bright",
+  "tender",
+  "restless",
+];
+
+function isMoodEnergy(value: unknown): value is MoodEnergy {
+  return (
+    typeof value === "string" && moodEnergyValues.includes(value as MoodEnergy)
+  );
+}
+
+function isJournalEntry(value: unknown): value is JournalEntry {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  const entry = value as Record<string, unknown>;
+  const hasValidCreatedAt =
+    typeof entry.createdAt === "string" && !Number.isNaN(Date.parse(entry.createdAt));
+  const hasValidUpdatedAt =
+    entry.updatedAt === undefined ||
+    (typeof entry.updatedAt === "string" &&
+      !Number.isNaN(Date.parse(entry.updatedAt)));
+
+  return (
+    typeof entry.id === "string" &&
+    typeof entry.body === "string" &&
+    isMoodEnergy(entry.mood) &&
+    typeof entry.isGratitude === "boolean" &&
+    typeof entry.intentionLink === "string" &&
+    hasValidCreatedAt &&
+    hasValidUpdatedAt
+  );
+}
+
+function isJournalEntryList(value: unknown): value is JournalEntry[] {
+  return Array.isArray(value) && value.every(isJournalEntry);
+}
+
 export function JournalBoard() {
   const [entries, setEntries] = useState<JournalEntry[]>([]);
   const [formValues, setFormValues] = useState<JournalFormValues>(emptyForm);
   const [filters, setFilters] = useState<JournalFilterValues>(emptyFilters);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [hasLoadedLocalState, setHasLoadedLocalState] = useState(false);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      setEntries(readLocalStore(localStoreKeys.journal, [], isJournalEntryList));
+      setHasLoadedLocalState(true);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    if (!hasLoadedLocalState) {
+      return;
+    }
+
+    writeLocalStore(localStoreKeys.journal, entries);
+  }, [entries, hasLoadedLocalState]);
 
   const filteredEntries = useMemo(() => {
     const normalizedSearch = filters.search.trim().toLowerCase();
@@ -155,8 +221,9 @@ export function JournalBoard() {
             </div>
           </dl>
           <p className={`${ui.inset} mt-4 p-4 text-sm leading-6 text-stone-300`}>
-            This journal uses temporary browser state only. Entries are not
-            saved, synced, analyzed, or sent anywhere.
+            This journal is saved only in this browser. Entries are not synced,
+            backed up, analyzed, or sent anywhere; account persistence is for a
+            later module.
           </p>
         </section>
       </aside>

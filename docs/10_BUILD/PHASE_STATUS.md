@@ -359,3 +359,42 @@ Explicitly not implemented:
 Documentation drift:
 
 - None discovered. Preflight path validation passed for all requested Module 10 read-first docs.
+
+## Module 11 - Local MVP Persistence Foundation
+
+Status: Complete
+
+Date: 2026-05-24
+
+Completed in this pass:
+
+- Added a small versioned local browser storage helper at `lib/localStore.ts`.
+- Persisted `/daily` mood, daily intention, gratitude notes, and reflection text across reloads.
+- Persisted `/intentions` user-created board cards with title, target emotion, why it matters, progress note, and status.
+- Persisted `/journal` entries with body text, mood/energy tag, gratitude marker, intention link text, and timestamps.
+- Added a `/settings` control to clear local SMA browser data with confirmation.
+- Updated page copy to make local-only storage explicit: data is stored in this browser only, not synced, not backed up, and account/database persistence is a later module.
+
+Validation:
+
+- Preflight path validation passed for all requested read-first docs, including `docs/10_BUILD/MODULE_11_ACCOUNTS_AND_PERSISTENCE.md`.
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+- `git diff --check` passed.
+
+Explicitly not implemented:
+
+- No authentication.
+- No database persistence.
+- No Supabase integration.
+- No API routes.
+- No AI or OpenAI calls.
+- No payments.
+- No notifications.
+- No secrets.
+- No new major dependencies.
+
+Documentation drift:
+
+- None discovered.

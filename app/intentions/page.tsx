@@ -7,7 +7,7 @@ export default function IntentionsPage() {
       <PageHeader
         eyebrow="Intentions"
         title="Manifestation board"
-        description="Create a temporary board for grounded intentions, target emotions, reasons, progress notes, and status. Nothing here is saved yet."
+        description="Create a local board for grounded intentions, target emotions, reasons, progress notes, and status. Data is stored in this browser only."
       />
       <IntentionBoard />
     </div>

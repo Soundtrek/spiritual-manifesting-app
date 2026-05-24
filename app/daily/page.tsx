@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   CheckCircle2,
   CircleDot,
@@ -19,12 +19,83 @@ import { PageHeader } from "@/components/PageHeader";
 import { ReflectionTextarea } from "@/components/ReflectionTextarea";
 import { SectionLabel } from "@/components/SectionLabel";
 import { ui } from "@/components/uiStyles";
+import {
+  localStoreKeys,
+  readLocalStore,
+  writeLocalStore,
+} from "@/lib/localStore";
+
+type DailyAlignmentState = {
+  mood: string;
+  intention: string;
+  gratitude: string[];
+  reflection: string;
+};
+
+const emptyDailyAlignment: DailyAlignmentState = {
+  mood: "",
+  intention: "",
+  gratitude: ["", "", ""],
+  reflection: "",
+};
+
+function isDailyAlignmentState(value: unknown): value is DailyAlignmentState {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  const state = value as Record<string, unknown>;
+
+  return (
+    typeof state.mood === "string" &&
+    typeof state.intention === "string" &&
+    Array.isArray(state.gratitude) &&
+    state.gratitude.every((entry) => typeof entry === "string") &&
+    typeof state.reflection === "string"
+  );
+}
 
 export default function DailyPage() {
-  const [mood, setMood] = useState("");
-  const [intention, setIntention] = useState("");
-  const [gratitude, setGratitude] = useState(["", "", ""]);
-  const [reflection, setReflection] = useState("");
+  const [mood, setMood] = useState(emptyDailyAlignment.mood);
+  const [intention, setIntention] = useState(emptyDailyAlignment.intention);
+  const [gratitude, setGratitude] = useState(emptyDailyAlignment.gratitude);
+  const [reflection, setReflection] = useState(emptyDailyAlignment.reflection);
+  const [hasLoadedLocalState, setHasLoadedLocalState] = useState(false);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      const savedState = readLocalStore(
+        localStoreKeys.dailyAlignment,
+        emptyDailyAlignment,
+        isDailyAlignmentState,
+      );
+
+      setMood(savedState.mood);
+      setIntention(savedState.intention);
+      setGratitude(
+        savedState.gratitude.length > 0
+          ? [...savedState.gratitude, "", "", ""].slice(0, 3)
+          : emptyDailyAlignment.gratitude,
+      );
+      setReflection(savedState.reflection);
+      setHasLoadedLocalState(true);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    if (!hasLoadedLocalState) {
+      return;
+    }
+
+    writeLocalStore(localStoreKeys.dailyAlignment, {
+      mood,
+      intention,
+      gratitude,
+      reflection,
+    });
+  }, [gratitude, hasLoadedLocalState, intention, mood, reflection]);
 
   const completedSteps = useMemo(() => {
     return [
@@ -46,7 +117,7 @@ export default function DailyPage() {
       <PageHeader
         eyebrow="Daily"
         title="Today's alignment"
-        description="A quiet check-in for mood, intention, gratitude, and reflection. Everything here stays local to this page for now."
+        description="A quiet check-in for mood, intention, gratitude, and reflection. Entries are stored in this browser only and are not synced or backed up."
       />
 
       <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_20rem]">
@@ -147,8 +218,9 @@ export default function DailyPage() {
             </dl>
 
             <div className={`${ui.inset} mt-6 p-4 text-sm leading-6 text-stone-300`}>
-              This summary is temporary UI state only. It is not saved, synced, or
-              analyzed.
+              This summary is saved only in this browser. It is not synced,
+              backed up, analyzed, or sent to a server; account persistence is
+              for a later module.
             </div>
           </section>
         </div>

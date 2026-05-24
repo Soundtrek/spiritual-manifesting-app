@@ -7,7 +7,7 @@ export default function JournalPage() {
       <PageHeader
         eyebrow="Journal"
         title="Journal and history"
-        description="Create temporary reflections, mark gratitude moments, and filter this session's timeline. Nothing here is saved yet."
+        description="Create reflections, mark gratitude moments, and filter your local timeline. Entries are stored in this browser only."
       />
       <JournalBoard />
     </div>

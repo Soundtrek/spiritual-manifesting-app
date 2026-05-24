@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { EmptyState } from "@/components/EmptyState";
 import { GroundedReframePanel } from "@/components/GroundedReframePanel";
 import { IntentionForm, type IntentionFormValues } from "@/components/IntentionForm";
@@ -11,6 +11,11 @@ import {
 import type { IntentionStatus } from "@/components/IntentionStatusPill";
 import { SectionLabel } from "@/components/SectionLabel";
 import { ui } from "@/components/uiStyles";
+import {
+  localStoreKeys,
+  readLocalStore,
+  writeLocalStore,
+} from "@/lib/localStore";
 
 const emptyForm: IntentionFormValues = {
   title: "",
@@ -20,10 +25,60 @@ const emptyForm: IntentionFormValues = {
   status: "active",
 };
 
+const intentionStatuses: IntentionStatus[] = ["active", "paused", "completed"];
+
+function isIntentionStatus(value: unknown): value is IntentionStatus {
+  return (
+    typeof value === "string" &&
+    intentionStatuses.includes(value as IntentionStatus)
+  );
+}
+
+function isBoardIntention(value: unknown): value is BoardIntention {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  const intention = value as Record<string, unknown>;
+
+  return (
+    typeof intention.id === "string" &&
+    typeof intention.title === "string" &&
+    typeof intention.emotion === "string" &&
+    typeof intention.why === "string" &&
+    typeof intention.note === "string" &&
+    isIntentionStatus(intention.status)
+  );
+}
+
+function isBoardIntentionList(value: unknown): value is BoardIntention[] {
+  return Array.isArray(value) && value.every(isBoardIntention);
+}
+
 export function IntentionBoard() {
   const [intentions, setIntentions] = useState<BoardIntention[]>([]);
   const [formValues, setFormValues] = useState<IntentionFormValues>(emptyForm);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [hasLoadedLocalState, setHasLoadedLocalState] = useState(false);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      setIntentions(
+        readLocalStore(localStoreKeys.intentions, [], isBoardIntentionList),
+      );
+      setHasLoadedLocalState(true);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    if (!hasLoadedLocalState) {
+      return;
+    }
+
+    writeLocalStore(localStoreKeys.intentions, intentions);
+  }, [hasLoadedLocalState, intentions]);
 
   const statusCounts = useMemo(() => {
     return intentions.reduce(
@@ -127,7 +182,7 @@ export function IntentionBoard() {
         ) : (
           <EmptyState
             title="No intentions on the board yet"
-            description="Create one intention to start a temporary board for this session. It will not be saved when the page reloads."
+            description="Create one intention to start a board saved only in this browser. It is not synced or backed up."
           />
         )}
       </div>
@@ -167,8 +222,9 @@ export function IntentionBoard() {
             </div>
           </dl>
           <p className={`${ui.inset} mt-4 p-4 text-sm leading-6 text-stone-300`}>
-            This board uses temporary browser state only. It is not saved,
-            synced, analyzed, or sent anywhere.
+            This board is saved only in this browser. It is not synced, backed
+            up, analyzed, or sent anywhere; account persistence is for a later
+            module.
           </p>
         </section>
 

@@ -52,8 +52,8 @@ export function JournalComposer({
           {isEditing ? "Edit this reflection" : "Add a journal note"}
         </h2>
         <p className="mt-3 leading-7 text-stone-300">
-          Write what feels useful to remember. This stays in temporary page
-          state only.
+          Write what feels useful to remember. This is saved only in this
+          browser.
         </p>
       </div>
 

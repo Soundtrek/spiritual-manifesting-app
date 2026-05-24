@@ -389,3 +389,46 @@ Commit SHA: recorded in final report after commit creation.
 Notes:
 
 - Documentation drift: none discovered.
+
+## 2026-05-24 - Module 11 Local MVP Persistence Foundation
+
+Module: Module 11 - Accounts and Persistence, local MVP persistence foundation
+
+Prompt purpose: Give the static MVP flows continuity across page reloads using local browser storage only.
+
+Guardrails:
+
+- Do not add authentication.
+- Do not add database persistence.
+- Do not add Supabase.
+- Do not add server API routes.
+- Do not add OpenAI, AI calls, or generated guidance.
+- Do not add payments.
+- Do not add notifications.
+- Do not add new major dependencies.
+- Do not store secrets.
+- Keep storage simple, local, and reversible.
+
+Actual outcome:
+
+- Preflight path validation passed for all requested read-first docs, including `docs/10_BUILD/MODULE_11_ACCOUNTS_AND_PERSISTENCE.md`.
+- Added `lib/localStore.ts` with client-safe local storage access, versioned SMA keys, JSON parse/stringify guards, removal, and clear helpers.
+- Persisted `/daily` mood, daily intention, gratitude notes, and reflection text in this browser only.
+- Persisted `/intentions` user-created intentions with title, target emotion, why it matters, progress note, and status.
+- Persisted `/journal` entries with text, mood/energy tag, gratitude marker, intention link text, and timestamps.
+- Added a `/settings` reset control labeled "Clear local SMA data" with confirmation and local-only explanatory copy.
+- Updated privacy-safe wording to state data is stored in this browser only, not synced, not backed up, and account/database persistence is for a later module.
+
+Validation results:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed after adjusting local-storage hydration to satisfy React hook lint rules.
+- `npm.cmd run build` passed.
+- `git diff --check` passed.
+
+Commit SHA: final commit SHA reported after commit creation; adding it directly to this committed file would change the commit hash.
+
+Notes:
+
+- Documentation drift: none discovered.
+- No backend, auth, Supabase, AI, payments, notifications, secrets, or new major dependencies were introduced.
