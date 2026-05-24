@@ -85,3 +85,38 @@ Explicitly not implemented:
 - No API routes.
 - No database access or persistence.
 - No Supabase integration.
+
+## Module 06 - Manifestation Board Foundation
+
+Status: Complete
+
+Date: 2026-05-24
+
+Completed in this pass:
+
+- Replaced the `/intentions` placeholder with a static local-state manifestation board.
+- Added create, edit, delete, and status update behavior for intentions.
+- Added fields for target emotion, why it matters, and progress note.
+- Added reusable board UI components for the board, form, intention cards, status pills, emotion tags, and grounded reframe placeholder.
+- Kept the grounded reframe panel as a non-AI placeholder with no generated output.
+- Preserved the calm dark modular UI style and grounded, user-led language.
+
+Validation:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+
+Explicitly not implemented:
+
+- No AI logic or model calls.
+- No authentication.
+- No API routes.
+- No database access or persistence.
+- No Supabase integration.
+- No payments.
+- No notifications.
+
+Documentation drift:
+
+- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` was requested as a read-first document but is not present in this checkout.

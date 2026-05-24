@@ -2,19 +2,20 @@
 
 ## Current Module
 
-Documentation Path Alignment after Module 05
+Module 06 - Manifestation Board Foundation
 
 ## Status
 
-The Daily Alignment foundation remains complete. A follow-up documentation maintenance pass repaired missing canonical read-first paths for future Codex workflows.
+Module 06 is complete as a static local-state foundation. The `/intentions` route now has a usable manifestation board without AI, auth, persistence, API routes, or backend integration.
 
 ## What Changed
 
-- Verified the expected Module 05 read-first docs were missing from the checkout.
-- Created canonical docs for Module 05, MVP boundaries, UI style, interaction principles, safe language, and Codex prompt capture policy.
-- Created `docs/MASTER_INDEX.md`, `docs/SOURCE_OF_TRUTH_MATRIX.md`, and `docs/DOCUMENT_RELATIONSHIP_MAP.md`.
-- Created `prompts/CODEX_PROMPT_TEMPLATE.md` with read-first path verification before implementation.
-- Preserved the completed `/daily` implementation without app code changes.
+- Replaced the `/intentions` placeholder with a client-side manifestation board.
+- Added local create, edit, delete, and status update behavior for intentions.
+- Added target emotion, why it matters, and progress note fields.
+- Added reusable components: `IntentionBoard`, `IntentionForm`, `ManifestationIntentionCard`, `IntentionStatusPill`, `EmotionTag`, and `GroundedReframePanel`.
+- Added a grounded reframe placeholder that clearly states no AI is connected yet.
+- Updated phase status and prompt log documentation.
 
 ## Boundaries Preserved
 
@@ -23,8 +24,18 @@ The Daily Alignment foundation remains complete. A follow-up documentation maint
 - No database or Supabase integration added.
 - No payments, notifications, or production secrets added.
 - No new major dependencies added.
-- No app code or UI components changed in the documentation alignment pass.
+- No unrelated app pages modified.
+
+## Validation
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+
+## Known Drift
+
+- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` was requested as a read-first document but is not present in this checkout.
 
 ## Next Suggested Step
 
-Use `docs/MASTER_INDEX.md` and `prompts/CODEX_PROMPT_TEMPLATE.md` before the next module. A later module can decide whether entries should persist, but the current documented boundary still leaves storage and AI guidance out of scope.
+A later module can decide whether intention entries should persist or receive grounded AI reframing. Those capabilities remain intentionally out of scope for this foundation pass.
