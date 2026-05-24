@@ -6,18 +6,16 @@ Module 12 - Beta Readiness, QA, And Local MVP Acceptance
 
 ## Status
 
-Module 12 beta readiness foundation is complete locally. The app has local MVP acceptance criteria, QA checklist, manual smoke tests, a beta feedback capture plan, updated known limitations, and a Settings status panel that clearly states Local MVP boundaries.
+Module 12 beta readiness foundation is complete locally. The app is now prepared for local NUC alpha testing with a production Docker image, production-like Docker Compose service, environment example, NUC deployment guide, and health check instructions.
 
 ## What Changed
 
-- Verified all requested Module 12 read-first docs existed before implementation.
-- Created `docs/12_RELEASE/LOCAL_MVP_ACCEPTANCE_CRITERIA.md`.
-- Created `docs/11_TESTING/LOCAL_QA_CHECKLIST.md`.
-- Created `docs/11_TESTING/MANUAL_SMOKE_TESTS.md`.
-- Created `docs/12_RELEASE/BETA_FEEDBACK_CAPTURE_PLAN.md`.
-- Updated `docs/12_RELEASE/KNOWN_LIMITATIONS.md` with current local MVP limitations.
-- Updated `/settings` with a calm Local MVP status panel.
-- Updated phase status and prompt log records for Module 12.
+- Updated `Dockerfile` to build the Next.js production app in-container and run it with `npm run start`.
+- Updated `docker-compose.yml` to run the app-only production container with restart policy and HTTP health check.
+- Updated `.env.example` for the current app-only Compose environment.
+- Expanded `docs/09_OPERATIONS/LOCAL_DEV_DOCKER_WORKFLOW.md` with production-like Compose commands and health checks.
+- Created `docs/09_OPERATIONS/NUC_DEPLOYMENT_GUIDE.md`.
+- Updated prompt log records for NUC Docker deployment readiness.
 
 ## Boundaries Preserved
 
@@ -29,14 +27,15 @@ Module 12 beta readiness foundation is complete locally. The app has local MVP a
 - No payments or notifications added.
 - No production secrets added.
 - No new major dependencies added.
+- No new app features added.
 
 ## Validation
 
-- Preflight path validation passed for all requested Module 12 read-first docs.
-- `npm.cmd run typecheck` passed.
+- `npm.cmd run typecheck` passed after `npm.cmd run build` refreshed Next generated types.
 - `npm.cmd run lint` passed.
 - `npm.cmd run build` passed.
 - `git diff --check` passed.
+- Docker CLI is not installed or not on PATH in this environment, so `docker compose config` and container runtime verification must be run on the NUC or another Docker-enabled host.
 
 ## Known Drift
 
@@ -44,4 +43,4 @@ Module 12 beta readiness foundation is complete locally. The app has local MVP a
 
 ## Next Suggested Step
 
-Run the manual QA checklist against the local app before inviting beta feedback, then record any blocking, safety, persistence, responsive, or copy issues in the external feedback tracker.
+Deploy to the NUC with `docker compose up --build -d`, verify `docker compose ps` reports a healthy `sma-web`, then run the manual smoke checks from `docs/09_OPERATIONS/NUC_DEPLOYMENT_GUIDE.md`.

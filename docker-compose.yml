@@ -3,34 +3,28 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      target: runner
     container_name: sma-web
+    restart: unless-stopped
     env_file:
       - path: .env
         required: false
     environment:
+      NODE_ENV: production
       NEXT_TELEMETRY_DISABLED: "1"
-      PORT: ${SMA_WEB_PORT:-3000}
+      PORT: "3000"
+      HOSTNAME: 0.0.0.0
     ports:
       - "${SMA_WEB_PORT:-3000}:3000"
-    volumes:
-      - .:/app
-      - sma-web-node-modules:/app/node_modules
-    depends_on:
-      - sma-db
-
-  sma-db:
-    image: postgres:18-alpine
-    container_name: sma-db
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB:-sma_local}
-      POSTGRES_USER: ${POSTGRES_USER:-sma_local}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sma_local_password}
-    ports:
-      - "${POSTGRES_PORT:-5432}:5432"
-    volumes:
-      - sma-postgres-data:/var/lib/postgresql/data
-
-volumes:
-  sma-postgres-data:
-  sma-web-node-modules:
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://127.0.0.1:3000', (res) => process.exit(res.statusCode < 500 ? 0 : 1)).on('error', () => process.exit(1))"
+        ]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3

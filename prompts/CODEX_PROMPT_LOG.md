@@ -476,3 +476,41 @@ Notes:
 
 - Documentation drift: none discovered.
 - No backend, auth, Supabase, AI, payments, notifications, API routes, or new major dependencies were introduced.
+
+## 2026-05-24 - NUC Docker Deployment Preparation
+
+Module: Operations - Local NUC alpha deployment
+
+Prompt purpose: Prepare SMA for Docker Compose deployment on a local NUC for real-life alpha testing without adding app features.
+
+Guardrails:
+
+- Do not add new app features.
+- Do not add AI changes.
+- Do not add authentication changes.
+- Do not add database persistence changes.
+- Do not add Supabase.
+- Do not add API routes.
+- Keep deployment documentation operational and concise.
+
+Actual outcome:
+
+- Updated `Dockerfile` from a development container to a production build container.
+- Updated `docker-compose.yml` to run the production app container with restart policy and HTTP health check.
+- Updated `.env.example` to match the current app-only deployment environment.
+- Expanded local Docker workflow documentation with production-like Compose commands and health checks.
+- Created `docs/09_OPERATIONS/NUC_DEPLOYMENT_GUIDE.md`.
+- Updated current handover with deployment status and boundaries.
+
+Validation results:
+
+- First `npm.cmd run typecheck` hit stale `.next/types` output while the build was regenerating Next types.
+- `npm.cmd run build` passed.
+- `npm.cmd run lint` passed.
+- Rerun `npm.cmd run typecheck` passed.
+- `git diff --check` passed.
+- `docker compose config` could not run locally because Docker is not installed or not on PATH in this environment.
+
+Notes:
+
+- No AI, auth, database, Supabase, API route, payment, notification, or feature changes were introduced.
