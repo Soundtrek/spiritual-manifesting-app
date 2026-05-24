@@ -2,19 +2,20 @@
 
 ## Current Module
 
-Module 06 - Manifestation Board Foundation
+Documentation Runtime Integrity Layer
 
 ## Status
 
-Module 06 is complete as a static local-state foundation. The `/intentions` route now has a usable manifestation board without AI, auth, persistence, API routes, or backend integration.
+Documentation runtime integrity is complete. Codex workflows now have deterministic registry, module-required-doc, alias, and preflight validation docs to prevent silent fallback behavior when canonical paths are missing.
 
 ## What Changed
 
-- Replaced the `/intentions` placeholder with a client-side manifestation board.
-- Added local create, edit, delete, and status update behavior for intentions.
-- Added target emotion, why it matters, and progress note fields.
-- Added reusable components: `IntentionBoard`, `IntentionForm`, `ManifestationIntentionCard`, `IntentionStatusPill`, `EmotionTag`, and `GroundedReframePanel`.
-- Added a grounded reframe placeholder that clearly states no AI is connected yet.
+- Added `docs/DOCUMENT_REGISTRY.md`.
+- Added `docs/REQUIRED_DOCS_BY_MODULE.md`.
+- Added `docs/DOC_ALIAS_MAP.md`.
+- Added `docs/09_OPERATIONS/DOC_PREFLIGHT_VALIDATION_POLICY.md`.
+- Updated `prompts/CODEX_PROMPT_TEMPLATE.md` with required preflight path validation.
+- Updated master navigation docs to include the new deterministic documentation governance layer.
 - Updated phase status and prompt log documentation.
 
 ## Boundaries Preserved
@@ -24,7 +25,7 @@ Module 06 is complete as a static local-state foundation. The `/intentions` rout
 - No database or Supabase integration added.
 - No payments, notifications, or production secrets added.
 - No new major dependencies added.
-- No unrelated app pages modified.
+- No app feature code modified.
 
 ## Validation
 
@@ -34,8 +35,9 @@ Module 06 is complete as a static local-state foundation. The `/intentions` rout
 
 ## Known Drift
 
-- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` was requested as a read-first document but is not present in this checkout.
+- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` was requested during Module 06 but is not present in this checkout.
+- The missing Module 06 path is now tracked in `docs/DOC_ALIAS_MAP.md`.
 
 ## Next Suggested Step
 
-A later module can decide whether intention entries should persist or receive grounded AI reframing. Those capabilities remain intentionally out of scope for this foundation pass.
+Future Codex tasks should begin by validating read-first paths against `docs/DOCUMENT_REGISTRY.md`, `docs/REQUIRED_DOCS_BY_MODULE.md`, and `docs/09_OPERATIONS/DOC_PREFLIGHT_VALIDATION_POLICY.md`.

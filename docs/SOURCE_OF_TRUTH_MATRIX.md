@@ -4,6 +4,10 @@ Canonical path: `docs/SOURCE_OF_TRUTH_MATRIX.md`
 
 | Concern | Canonical Path |
 | --- | --- |
+| Documentation registry | `docs/DOCUMENT_REGISTRY.md` |
+| Required docs by module | `docs/REQUIRED_DOCS_BY_MODULE.md` |
+| Document alias and drift map | `docs/DOC_ALIAS_MAP.md` |
+| Documentation preflight validation | `docs/09_OPERATIONS/DOC_PREFLIGHT_VALIDATION_POLICY.md` |
 | Project purpose | `docs/PROJECT_BRIEF.md` |
 | MVP scope | `docs/MVP_SCOPE.md` |
 | MVP build boundaries | `docs/10_BUILD/MVP_HARD_BOUNDARY.md` |

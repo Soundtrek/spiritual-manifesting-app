@@ -4,6 +4,10 @@ Canonical path: `docs/MASTER_INDEX.md`
 
 ## Read-First Docs
 
+- `docs/DOCUMENT_REGISTRY.md`
+- `docs/REQUIRED_DOCS_BY_MODULE.md`
+- `docs/DOC_ALIAS_MAP.md`
+- `docs/09_OPERATIONS/DOC_PREFLIGHT_VALIDATION_POLICY.md`
 - `docs/10_BUILD/MODULE_05_DAILY_ALIGNMENT.md`
 - `docs/10_BUILD/MVP_HARD_BOUNDARY.md`
 - `docs/06_USER_EXPERIENCE/UI_STYLE_CREWFINDER_INSPIRED.md`
@@ -25,3 +29,6 @@ Canonical path: `docs/MASTER_INDEX.md`
 
 - `docs/SOURCE_OF_TRUTH_MATRIX.md`
 - `docs/DOCUMENT_RELATIONSHIP_MAP.md`
+- `docs/DOCUMENT_REGISTRY.md`
+- `docs/REQUIRED_DOCS_BY_MODULE.md`
+- `docs/DOC_ALIAS_MAP.md`

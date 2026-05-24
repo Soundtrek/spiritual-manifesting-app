@@ -120,3 +120,35 @@ Explicitly not implemented:
 Documentation drift:
 
 - `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` was requested as a read-first document but is not present in this checkout.
+
+## Documentation Runtime Integrity Layer
+
+Status: Complete
+
+Date: 2026-05-24
+
+Completed in this pass:
+
+- Added deterministic documentation registry at `docs/DOCUMENT_REGISTRY.md`.
+- Added module-level required docs matrix at `docs/REQUIRED_DOCS_BY_MODULE.md`.
+- Added drift and legacy path tracking at `docs/DOC_ALIAS_MAP.md`.
+- Added preflight validation policy at `docs/09_OPERATIONS/DOC_PREFLIGHT_VALIDATION_POLICY.md`.
+- Updated the Codex prompt template to require preflight path validation before implementation.
+- Updated navigation docs to reference the registry, required-docs matrix, alias map, and preflight policy.
+
+Validation:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+
+Explicitly not implemented:
+
+- No app code changes.
+- No UI feature changes.
+- No backend logic.
+- No AI integrations.
+
+Discovered drift:
+
+- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` remains a previously requested but missing path and is tracked in `docs/DOC_ALIAS_MAP.md`.

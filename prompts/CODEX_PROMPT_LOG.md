@@ -112,3 +112,40 @@ Commit SHA: recorded in final report after commit creation.
 Notes:
 
 - `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` was requested as a read-first document but is not present in this checkout.
+
+## 2026-05-24 - Documentation Runtime Integrity Layer
+
+Module: Documentation governance and runtime integrity
+
+Prompt purpose: Add deterministic documentation registry, required-docs matrix, alias map, and preflight policy to prevent Codex documentation path drift and silent fallback behavior.
+
+Guardrails:
+
+- Documentation governance only.
+- Do not modify app UI or feature code.
+- Do not add backend logic.
+- Do not add AI integrations.
+- Keep docs concise and operational.
+- Prefer canonical ownership.
+
+Actual outcome:
+
+- Created `docs/DOCUMENT_REGISTRY.md`.
+- Created `docs/REQUIRED_DOCS_BY_MODULE.md`.
+- Created `docs/DOC_ALIAS_MAP.md`.
+- Created `docs/09_OPERATIONS/DOC_PREFLIGHT_VALIDATION_POLICY.md`.
+- Updated `prompts/CODEX_PROMPT_TEMPLATE.md` with a required Preflight Path Validation section.
+- Updated master navigation docs to reference the registry, required-docs matrix, alias map, and preflight policy.
+- Updated handover and phase status to record deterministic documentation governance.
+
+Validation results:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+
+Commit SHA: recorded in final report after commit creation.
+
+Notes:
+
+- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` remains a discovered missing requested path and is tracked in `docs/DOC_ALIAS_MAP.md`.
