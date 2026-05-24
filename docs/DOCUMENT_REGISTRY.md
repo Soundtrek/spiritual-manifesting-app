@@ -23,7 +23,10 @@ Deterministic registry of active documentation paths. Codex must use these canon
 | BUILD-002 | `docs/10_BUILD/MODULE_05_DAILY_ALIGNMENT.md` | Module 05 Daily Alignment implementation spec. | Active | Module 05 |
 | BUILD-003 | `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` | Module 06 Manifestation Board implementation spec. | Active | Module 06 |
 | BUILD-004 | `docs/10_BUILD/MODULE_07_JOURNAL_AND_HISTORY.md` | Module 07 Journal and History implementation spec. | Active | Module 07 |
-| BUILD-005 | `docs/10_BUILD/PHASE_STATUS.md` | Completed module and maintenance status. | Active | Handover, status review |
+| BUILD-005 | `docs/10_BUILD/MODULE_08_AI_REFLECTION_ENGINE.md` | Module 08 Reflection and future AI boundary implementation spec. | Active | Module 08 |
+| BUILD-006 | `docs/10_BUILD/PHASE_STATUS.md` | Completed module and maintenance status. | Active | Handover, status review |
+| AI-001 | `docs/03_AI/AI_OPERATIONAL_BOUNDARIES.md` | Operational boundaries for future AI features. | Active | AI-scoped modules |
+| AI-002 | `docs/03_AI/FORBIDDEN_AI_BEHAVIORS.md` | Prohibited AI behaviors and output posture. | Active | AI-scoped modules |
 | SRC-001 | `docs/PROJECT_BRIEF.md` | Product purpose and high-level direction. | Active | Scope decisions |
 | SRC-002 | `docs/MVP_SCOPE.md` | MVP feature scope and exclusions. | Active | Scope decisions |
 | SRC-003 | `docs/SAFETY_AND_ETHICS.md` | Safety posture and ethical constraints. | Active | Safety review |

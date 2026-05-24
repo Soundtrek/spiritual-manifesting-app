@@ -262,3 +262,41 @@ Notes:
 
 - Preflight path validation passed for all requested read-first docs.
 - Remaining drift: none known.
+
+## 2026-05-24 - Module 08 Documentation Drift Resolution
+
+Module: Module 08 - Documentation drift and GitHub sync repair
+
+Prompt purpose: Investigate local-vs-GitHub documentation drift, push local commits, restore missing Module 08 preflight docs, and ensure GitHub main contains the deterministic documentation registry, Module 07 docs, and latest phase status.
+
+Guardrails:
+
+- Do not modify app feature code unless required for sync repair.
+- Do not add backend logic.
+- Do not add AI integrations.
+- Preserve deterministic documentation governance.
+- Keep documentation repairs operational and concise.
+
+Actual outcome:
+
+- Verified local `main` contained commits `d4209a7`, `8144953`, `2a9f0fe`, and `35ed1ec`.
+- Initial push was rejected because `origin/main` contained remote-only documentation commits.
+- Fetched and merged `origin/main` into local `main`.
+- Resolved documentation conflicts in favor of the local canonical integrity layer.
+- Restored and normalized `docs/10_BUILD/MODULE_08_AI_REFLECTION_ENGINE.md`.
+- Restored and normalized `docs/03_AI/AI_OPERATIONAL_BOUNDARIES.md`.
+- Restored and normalized `docs/03_AI/FORBIDDEN_AI_BEHAVIORS.md`.
+- Updated documentation registry, required-docs matrix, alias map, phase status, and handover records.
+
+Validation results:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+
+Commit SHA: recorded in final report after commit creation.
+
+Notes:
+
+- Missing docs found: Module 08 build spec and two AI boundary docs were absent locally before remote merge.
+- Remaining drift: none known.

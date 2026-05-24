@@ -251,3 +251,36 @@ Explicitly not implemented:
 Documentation drift:
 
 - None discovered.
+
+## Module 08 Documentation Drift Resolution
+
+Status: Complete
+
+Date: 2026-05-24
+
+Completed in this pass:
+
+- Fetched and merged remote `origin/main` documentation foundation into local `main`.
+- Restored missing Module 08 canonical spec at `docs/10_BUILD/MODULE_08_AI_REFLECTION_ENGINE.md`.
+- Restored required AI boundary docs at `docs/03_AI/AI_OPERATIONAL_BOUNDARIES.md` and `docs/03_AI/FORBIDDEN_AI_BEHAVIORS.md`.
+- Added Module 08 and AI boundary docs to `docs/DOCUMENT_REGISTRY.md`.
+- Added Module 08 required read-first docs to `docs/REQUIRED_DOCS_BY_MODULE.md`.
+- Marked Module 08 missing-doc drift as resolved in `docs/DOC_ALIAS_MAP.md`.
+- Preserved latest Module 07 phase status during local-vs-GitHub sync repair.
+
+Validation:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+
+Explicitly not implemented:
+
+- No app feature code changes.
+- No backend logic.
+- No AI integrations.
+- No persistence.
+
+Remaining drift:
+
+- None known.
