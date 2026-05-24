@@ -1,0 +1,36 @@
+services:
+  sma-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sma-web
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      NEXT_TELEMETRY_DISABLED: "1"
+      PORT: ${SMA_WEB_PORT:-3000}
+    ports:
+      - "${SMA_WEB_PORT:-3000}:3000"
+    volumes:
+      - .:/app
+      - sma-web-node-modules:/app/node_modules
+    depends_on:
+      - sma-db
+
+  sma-db:
+    image: postgres:18-alpine
+    container_name: sma-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-sma_local}
+      POSTGRES_USER: ${POSTGRES_USER:-sma_local}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sma_local_password}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - sma-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  sma-postgres-data:
+  sma-web-node-modules:
