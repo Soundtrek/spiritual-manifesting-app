@@ -2,26 +2,28 @@
 
 ## Current Module
 
-Module 04 - MVP App Shell Foundation
+Module 05 - Daily Alignment Foundation
 
 ## Status
 
-The first implementation foundation has been started. The app now has a static Next.js shell, core placeholder pages, reusable UI components, and Docker Compose services for the web app plus a local Postgres placeholder.
+The Daily Alignment foundation is complete. The `/daily` page now presents a static, local-state flow for mood, intention, gratitude, affirmation placeholder, short reflection, progress, and session summary.
 
 ## What Changed
 
-- Static UI shell created for the MVP app surface.
-- Crewfinder-inspired direction represented through modular cards, clear hierarchy, spacious dark UI, and grounded spiritual copy.
-- Docker foundation added with `sma-web` and `sma-db`.
-- Environment example added for local development defaults.
+- Replaced the `/daily` placeholder with a calm Daily Alignment flow.
+- Added reusable Daily Alignment components: `AlignmentStepCard`, `AlignmentProgress`, `MoodSelector`, `IntentionCard`, `GratitudeCard`, `AffirmationCard`, and `ReflectionTextarea`.
+- Used local React state only; the summary and progress reset with the page session.
+- Kept the affirmation section static and non-generated.
+- Validated with typecheck, lint, and production build.
 
 ## Boundaries Preserved
 
-- No AI/auth/persistence implemented yet.
+- No AI/auth/persistence implemented.
 - No API routes added.
-- No payments or production secrets added.
-- Postgres is present only as a local development runtime placeholder.
+- No database or Supabase integration added.
+- No payments, notifications, or production secrets added.
+- No new major dependencies added.
 
 ## Next Suggested Step
 
-Module 05 can begin only after confirming the shell direction and deciding which documented MVP surface should receive the first real interactive behavior.
+Review the Daily Alignment flow in-browser for copy and spacing. A later module can decide whether entries should persist, but this pass intentionally leaves storage and AI guidance out of scope.
