@@ -2,11 +2,11 @@
 
 ## Current Module
 
-Documentation Runtime Integrity Layer
+Module 06 Documentation Drift Resolution
 
 ## Status
 
-Documentation runtime integrity is complete. Codex workflows now have deterministic registry, module-required-doc, alias, and preflight validation docs to prevent silent fallback behavior when canonical paths are missing.
+Module 06 documentation drift is resolved. The previously missing canonical build doc now exists at `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` and is registered in the documentation integrity layer.
 
 ## What Changed
 
@@ -16,7 +16,8 @@ Documentation runtime integrity is complete. Codex workflows now have determinis
 - Added `docs/09_OPERATIONS/DOC_PREFLIGHT_VALIDATION_POLICY.md`.
 - Updated `prompts/CODEX_PROMPT_TEMPLATE.md` with required preflight path validation.
 - Updated master navigation docs to include the new deterministic documentation governance layer.
-- Updated phase status and prompt log documentation.
+- Created `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md`.
+- Updated the registry, required-docs matrix, alias map, phase status, and prompt log to mark Module 06 drift resolved.
 
 ## Boundaries Preserved
 
@@ -35,8 +36,7 @@ Documentation runtime integrity is complete. Codex workflows now have determinis
 
 ## Known Drift
 
-- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` was requested during Module 06 but is not present in this checkout.
-- The missing Module 06 path is now tracked in `docs/DOC_ALIAS_MAP.md`.
+- None known.
 
 ## Next Suggested Step
 

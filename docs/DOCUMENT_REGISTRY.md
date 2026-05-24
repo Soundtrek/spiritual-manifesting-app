@@ -21,7 +21,8 @@ Deterministic registry of active documentation paths. Codex must use these canon
 | OPS-002 | `docs/09_OPERATIONS/DOC_PREFLIGHT_VALIDATION_POLICY.md` | Required preflight validation and drift response policy. | Active | All Codex tasks |
 | BUILD-001 | `docs/10_BUILD/MVP_HARD_BOUNDARY.md` | Implementation boundaries for MVP work. | Active | All implementation tasks |
 | BUILD-002 | `docs/10_BUILD/MODULE_05_DAILY_ALIGNMENT.md` | Module 05 Daily Alignment implementation spec. | Active | Module 05 |
-| BUILD-003 | `docs/10_BUILD/PHASE_STATUS.md` | Completed module and maintenance status. | Active | Handover, status review |
+| BUILD-003 | `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` | Module 06 Manifestation Board implementation spec. | Active | Module 06 |
+| BUILD-004 | `docs/10_BUILD/PHASE_STATUS.md` | Completed module and maintenance status. | Active | Handover, status review |
 | SRC-001 | `docs/PROJECT_BRIEF.md` | Product purpose and high-level direction. | Active | Scope decisions |
 | SRC-002 | `docs/MVP_SCOPE.md` | MVP feature scope and exclusions. | Active | Scope decisions |
 | SRC-003 | `docs/SAFETY_AND_ETHICS.md` | Safety posture and ethical constraints. | Active | Safety review |

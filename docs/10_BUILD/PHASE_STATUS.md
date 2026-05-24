@@ -119,7 +119,7 @@ Explicitly not implemented:
 
 Documentation drift:
 
-- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` was requested as a read-first document but is not present in this checkout.
+- Resolved on 2026-05-24: `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` now exists as the canonical Module 06 build doc.
 
 ## Documentation Runtime Integrity Layer
 
@@ -151,4 +151,35 @@ Explicitly not implemented:
 
 Discovered drift:
 
-- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` remains a previously requested but missing path and is tracked in `docs/DOC_ALIAS_MAP.md`.
+- Resolved on 2026-05-24: `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` now exists as the canonical Module 06 build doc and is tracked as resolved in `docs/DOC_ALIAS_MAP.md`.
+
+## Module 06 Documentation Drift Resolution
+
+Status: Complete
+
+Date: 2026-05-24
+
+Completed in this pass:
+
+- Created canonical Module 06 build doc at `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md`.
+- Added Module 06 to `docs/DOCUMENT_REGISTRY.md`.
+- Promoted the Module 06 build doc from optional to required in `docs/REQUIRED_DOCS_BY_MODULE.md`.
+- Marked the previous Module 06 missing-doc drift as resolved in `docs/DOC_ALIAS_MAP.md`.
+- Updated handover and prompt log records.
+
+Validation:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+
+Explicitly not implemented:
+
+- No app code changes.
+- No UI feature changes.
+- No backend logic.
+- No AI integrations.
+
+Remaining drift:
+
+- None known.

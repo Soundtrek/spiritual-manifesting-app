@@ -111,7 +111,8 @@ Commit SHA: recorded in final report after commit creation.
 
 Notes:
 
-- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` was requested as a read-first document but is not present in this checkout.
+- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` was requested as a read-first document and was missing at the time of Module 06 implementation.
+- Resolved on 2026-05-24 by creating canonical doc `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md`.
 
 ## 2026-05-24 - Documentation Runtime Integrity Layer
 
@@ -148,4 +149,39 @@ Commit SHA: recorded in final report after commit creation.
 
 Notes:
 
-- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` remains a discovered missing requested path and is tracked in `docs/DOC_ALIAS_MAP.md`.
+- `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` was tracked as a discovered missing requested path in `docs/DOC_ALIAS_MAP.md`.
+- Resolved on 2026-05-24 by creating canonical doc `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md`.
+
+## 2026-05-24 - Module 06 Documentation Drift Resolution
+
+Module: Module 06 - Documentation drift resolution
+
+Prompt purpose: Create the missing canonical Module 06 build document and update the documentation integrity layer to mark the tracked drift as resolved.
+
+Guardrails:
+
+- Documentation maintenance only.
+- Do not modify app feature code.
+- Do not add backend logic.
+- Do not add AI integrations.
+- Preserve deterministic documentation governance.
+
+Actual outcome:
+
+- Created `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md`.
+- Added the Module 06 build doc to `docs/DOCUMENT_REGISTRY.md`.
+- Promoted the Module 06 build doc to required in `docs/REQUIRED_DOCS_BY_MODULE.md`.
+- Marked the previous missing-doc drift as resolved in `docs/DOC_ALIAS_MAP.md`.
+- Updated phase status and handover documentation.
+
+Validation results:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+
+Commit SHA: recorded in final report after commit creation.
+
+Notes:
+
+- Remaining drift: none known.
