@@ -432,3 +432,47 @@ Notes:
 
 - Documentation drift: none discovered.
 - No backend, auth, Supabase, AI, payments, notifications, secrets, or new major dependencies were introduced.
+
+## 2026-05-24 - Module 12 Beta Readiness QA Foundation
+
+Module: Module 12 - Beta Readiness, QA, and Local MVP Acceptance
+
+Prompt purpose: Lock down the local MVP foundation with concise testing docs, known limitations, QA checks, and a simple app status surface in Settings.
+
+Guardrails:
+
+- Do not add AI calls.
+- Do not add authentication.
+- Do not add database persistence.
+- Do not add Supabase.
+- Do not add payments.
+- Do not add notifications.
+- Do not add API routes.
+- Do not add new product features beyond the simple Settings status panel.
+- Do not add new major dependencies.
+- Keep QA docs concise and actionable.
+
+Actual outcome:
+
+- Preflight path validation passed for all requested read-first docs.
+- Created local MVP acceptance criteria.
+- Created local QA checklist.
+- Created manual smoke tests.
+- Created beta feedback capture plan.
+- Updated known limitations for local-browser-only data, no sync, inactive AI, no backend storage, no export/import, and no production deployment guarantee.
+- Added a `/settings` Local MVP status panel showing local mode, browser-only persistence, inactive AI/auth/sync/database, and local data clearing availability.
+- Updated phase status and handover docs.
+
+Validation results:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+- `git diff --check` passed.
+
+Commit SHA: final commit SHA reported after commit creation; adding it directly to this committed file would change the commit hash.
+
+Notes:
+
+- Documentation drift: none discovered.
+- No backend, auth, Supabase, AI, payments, notifications, API routes, or new major dependencies were introduced.

@@ -398,3 +398,42 @@ Explicitly not implemented:
 Documentation drift:
 
 - None discovered.
+
+## Module 12 - Beta Readiness, QA, And Local MVP Acceptance
+
+Status: Complete
+
+Date: 2026-05-24
+
+Completed in this pass:
+
+- Added local MVP acceptance criteria for dashboard, persistence, reflection display, settings data clearing, responsive checks, safe language, and known limitations.
+- Added local QA checklist and manual smoke tests for beta readiness.
+- Added beta feedback capture plan using manual external notes only.
+- Updated known limitations to reflect local-browser-only data, no account sync, inactive AI, no backend storage, no export/import, and no production deployment guarantee.
+- Added a `/settings` Local MVP status panel showing local mode, browser-only persistence, inactive AI/auth/sync/database, and local data clearing availability.
+- Updated phase status, handover, and prompt log for Module 12 continuity.
+
+Validation:
+
+- Preflight path validation passed for all requested read-first docs.
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+- `git diff --check` passed.
+
+Explicitly not implemented:
+
+- No AI logic or model calls.
+- No authentication.
+- No database persistence.
+- No Supabase integration.
+- No API routes.
+- No payments.
+- No notifications.
+- No new product features beyond the settings status panel.
+- No new major dependencies.
+
+Documentation drift:
+
+- None discovered.

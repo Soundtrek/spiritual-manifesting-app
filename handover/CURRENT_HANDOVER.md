@@ -2,21 +2,22 @@
 
 ## Current Module
 
-Module 11 - Local MVP Persistence Foundation
+Module 12 - Beta Readiness, QA, And Local MVP Acceptance
 
 ## Status
 
-Module 11 local persistence foundation is complete locally. Daily Alignment, Intentions, and Journal data now survive page reloads using versioned browser `localStorage` only, with a Settings reset control for clearing local SMA data.
+Module 12 beta readiness foundation is complete locally. The app has local MVP acceptance criteria, QA checklist, manual smoke tests, a beta feedback capture plan, updated known limitations, and a Settings status panel that clearly states Local MVP boundaries.
 
 ## What Changed
 
-- Verified all requested Module 11 read-first docs existed before implementation.
-- Added `lib/localStore.ts` with client-safe local storage access, JSON parse/stringify guards, versioned keys, single-key removal, and local SMA data clearing.
-- Updated `/daily` to persist mood, daily intention, gratitude notes, and reflection text.
-- Updated `/intentions` to persist user-created intentions, target emotion, why it matters, progress notes, and status.
-- Updated `/journal` to persist entries, mood/energy tags, gratitude markers, intention link text, and timestamps.
-- Updated `/settings` with a clearly labeled "Clear local SMA data" control and browser-only privacy wording.
-- Updated UX copy to state that MVP data is stored in this browser only, not synced, not backed up, and not connected to an account.
+- Verified all requested Module 12 read-first docs existed before implementation.
+- Created `docs/12_RELEASE/LOCAL_MVP_ACCEPTANCE_CRITERIA.md`.
+- Created `docs/11_TESTING/LOCAL_QA_CHECKLIST.md`.
+- Created `docs/11_TESTING/MANUAL_SMOKE_TESTS.md`.
+- Created `docs/12_RELEASE/BETA_FEEDBACK_CAPTURE_PLAN.md`.
+- Updated `docs/12_RELEASE/KNOWN_LIMITATIONS.md` with current local MVP limitations.
+- Updated `/settings` with a calm Local MVP status panel.
+- Updated phase status and prompt log records for Module 12.
 
 ## Boundaries Preserved
 
@@ -31,7 +32,7 @@ Module 11 local persistence foundation is complete locally. Daily Alignment, Int
 
 ## Validation
 
-- Preflight path validation passed for all requested read-first docs, including `docs/10_BUILD/MODULE_11_ACCOUNTS_AND_PERSISTENCE.md`.
+- Preflight path validation passed for all requested Module 12 read-first docs.
 - `npm.cmd run typecheck` passed.
 - `npm.cmd run lint` passed.
 - `npm.cmd run build` passed.
@@ -43,4 +44,4 @@ Module 11 local persistence foundation is complete locally. Daily Alignment, Int
 
 ## Next Suggested Step
 
-Future account or database persistence work should explicitly migrate from these local-only keys instead of treating this MVP storage as synced or backed-up data.
+Run the manual QA checklist against the local app before inviting beta feedback, then record any blocking, safety, persistence, responsive, or copy issues in the external feedback tracker.
