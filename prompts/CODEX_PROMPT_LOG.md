@@ -185,3 +185,37 @@ Commit SHA: recorded in final report after commit creation.
 Notes:
 
 - Remaining drift: none known.
+
+## 2026-05-24 - Module 07 Documentation Drift Resolution
+
+Module: Module 07 - Documentation drift resolution
+
+Prompt purpose: Create the missing canonical Module 07 build specification before Journal and History implementation.
+
+Guardrails:
+
+- Documentation maintenance only.
+- Do not modify app feature code.
+- Do not add backend logic.
+- Do not add AI integrations.
+- Preserve deterministic documentation governance.
+
+Actual outcome:
+
+- Created `docs/10_BUILD/MODULE_07_JOURNAL_AND_HISTORY.md`.
+- Added the Module 07 build spec to `docs/DOCUMENT_REGISTRY.md`.
+- Updated `docs/REQUIRED_DOCS_BY_MODULE.md` with Module 07 required read-first docs.
+- Marked the Module 07 missing-spec drift as resolved in `docs/DOC_ALIAS_MAP.md`.
+- Updated phase status and handover documentation.
+
+Validation results:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+
+Commit SHA: recorded in final report after commit creation.
+
+Notes:
+
+- Remaining drift: none known.

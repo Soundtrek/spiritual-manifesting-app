@@ -183,3 +183,35 @@ Explicitly not implemented:
 Remaining drift:
 
 - None known.
+
+## Module 07 Documentation Drift Resolution
+
+Status: Complete
+
+Date: 2026-05-24
+
+Completed in this pass:
+
+- Created canonical Module 07 build spec at `docs/10_BUILD/MODULE_07_JOURNAL_AND_HISTORY.md`.
+- Added Module 07 to `docs/DOCUMENT_REGISTRY.md`.
+- Replaced the Module 07 future placeholder in `docs/REQUIRED_DOCS_BY_MODULE.md` with required implementation docs.
+- Marked the Module 07 missing-spec preflight drift as resolved in `docs/DOC_ALIAS_MAP.md`.
+- Updated handover and prompt log records.
+
+Validation:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+
+Explicitly not implemented:
+
+- No app code changes.
+- No UI feature changes.
+- No backend logic.
+- No AI integrations.
+- No persistence.
+
+Remaining drift:
+
+- None known.

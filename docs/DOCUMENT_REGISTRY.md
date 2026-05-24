@@ -22,7 +22,8 @@ Deterministic registry of active documentation paths. Codex must use these canon
 | BUILD-001 | `docs/10_BUILD/MVP_HARD_BOUNDARY.md` | Implementation boundaries for MVP work. | Active | All implementation tasks |
 | BUILD-002 | `docs/10_BUILD/MODULE_05_DAILY_ALIGNMENT.md` | Module 05 Daily Alignment implementation spec. | Active | Module 05 |
 | BUILD-003 | `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` | Module 06 Manifestation Board implementation spec. | Active | Module 06 |
-| BUILD-004 | `docs/10_BUILD/PHASE_STATUS.md` | Completed module and maintenance status. | Active | Handover, status review |
+| BUILD-004 | `docs/10_BUILD/MODULE_07_JOURNAL_AND_HISTORY.md` | Module 07 Journal and History implementation spec. | Active | Module 07 |
+| BUILD-005 | `docs/10_BUILD/PHASE_STATUS.md` | Completed module and maintenance status. | Active | Handover, status review |
 | SRC-001 | `docs/PROJECT_BRIEF.md` | Product purpose and high-level direction. | Active | Scope decisions |
 | SRC-002 | `docs/MVP_SCOPE.md` | MVP feature scope and exclusions. | Active | Scope decisions |
 | SRC-003 | `docs/SAFETY_AND_ETHICS.md` | Safety posture and ethical constraints. | Active | Safety review |

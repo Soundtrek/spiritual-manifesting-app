@@ -2,11 +2,11 @@
 
 ## Current Module
 
-Module 06 Documentation Drift Resolution
+Module 07 Documentation Drift Resolution
 
 ## Status
 
-Module 06 documentation drift is resolved. The previously missing canonical build doc now exists at `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md` and is registered in the documentation integrity layer.
+Module 07 documentation drift is resolved. The previously missing canonical build specification now exists at `docs/10_BUILD/MODULE_07_JOURNAL_AND_HISTORY.md` and is registered in the documentation integrity layer.
 
 ## What Changed
 
@@ -16,8 +16,8 @@ Module 06 documentation drift is resolved. The previously missing canonical buil
 - Added `docs/09_OPERATIONS/DOC_PREFLIGHT_VALIDATION_POLICY.md`.
 - Updated `prompts/CODEX_PROMPT_TEMPLATE.md` with required preflight path validation.
 - Updated master navigation docs to include the new deterministic documentation governance layer.
-- Created `docs/10_BUILD/MODULE_06_MANIFESTATION_BOARD.md`.
-- Updated the registry, required-docs matrix, alias map, phase status, and prompt log to mark Module 06 drift resolved.
+- Created `docs/10_BUILD/MODULE_07_JOURNAL_AND_HISTORY.md`.
+- Updated the registry, required-docs matrix, alias map, phase status, and prompt log to mark Module 07 drift resolved.
 
 ## Boundaries Preserved
 
@@ -40,4 +40,4 @@ Module 06 documentation drift is resolved. The previously missing canonical buil
 
 ## Next Suggested Step
 
-Future Codex tasks should begin by validating read-first paths against `docs/DOCUMENT_REGISTRY.md`, `docs/REQUIRED_DOCS_BY_MODULE.md`, and `docs/09_OPERATIONS/DOC_PREFLIGHT_VALIDATION_POLICY.md`.
+Module 07 implementation can now begin after preflight validation passes for `docs/10_BUILD/MODULE_07_JOURNAL_AND_HISTORY.md` and the other required read-first docs.
