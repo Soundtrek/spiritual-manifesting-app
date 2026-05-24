@@ -2,22 +2,19 @@
 
 ## Current Module
 
-Module 07 Documentation Drift Resolution
+Module 07 - Journal And History Foundation
 
 ## Status
 
-Module 07 documentation drift is resolved. The previously missing canonical build specification now exists at `docs/10_BUILD/MODULE_07_JOURNAL_AND_HISTORY.md` and is registered in the documentation integrity layer.
+Module 07 is complete as a static local-state foundation. The `/journal` route now has a usable journal and history timeline without AI, auth, persistence, API routes, or backend integration.
 
 ## What Changed
 
-- Added `docs/DOCUMENT_REGISTRY.md`.
-- Added `docs/REQUIRED_DOCS_BY_MODULE.md`.
-- Added `docs/DOC_ALIAS_MAP.md`.
-- Added `docs/09_OPERATIONS/DOC_PREFLIGHT_VALIDATION_POLICY.md`.
-- Updated `prompts/CODEX_PROMPT_TEMPLATE.md` with required preflight path validation.
-- Updated master navigation docs to include the new deterministic documentation governance layer.
-- Created `docs/10_BUILD/MODULE_07_JOURNAL_AND_HISTORY.md`.
-- Updated the registry, required-docs matrix, alias map, phase status, and prompt log to mark Module 07 drift resolved.
+- Replaced the `/journal` placeholder with a client-side journal timeline.
+- Added local create, edit, delete, mood/energy tag, gratitude marker, and optional intention link behavior.
+- Added search, mood/energy filter, and gratitude-only filter using local state only.
+- Added reusable components: `JournalBoard`, `JournalComposer`, `JournalFilters`, `JournalTimeline`, `JournalEntryCard`, `MoodEnergyTag`, and `GratitudeMarker`.
+- Updated phase status and prompt log documentation.
 
 ## Boundaries Preserved
 
@@ -26,13 +23,14 @@ Module 07 documentation drift is resolved. The previously missing canonical buil
 - No database or Supabase integration added.
 - No payments, notifications, or production secrets added.
 - No new major dependencies added.
-- No app feature code modified.
+- No unrelated app pages modified.
 
 ## Validation
 
 - `npm.cmd run typecheck` passed.
 - `npm.cmd run lint` passed.
 - `npm.cmd run build` passed.
+- `git diff --check` passed.
 
 ## Known Drift
 
@@ -40,4 +38,4 @@ Module 07 documentation drift is resolved. The previously missing canonical buil
 
 ## Next Suggested Step
 
-Module 07 implementation can now begin after preflight validation passes for `docs/10_BUILD/MODULE_07_JOURNAL_AND_HISTORY.md` and the other required read-first docs.
+Future modules can decide whether journal entries should persist or be summarized. Those capabilities remain intentionally out of scope for this local-state foundation pass.

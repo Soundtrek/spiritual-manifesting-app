@@ -215,3 +215,39 @@ Explicitly not implemented:
 Remaining drift:
 
 - None known.
+
+## Module 07 - Journal And History Foundation
+
+Status: Complete
+
+Date: 2026-05-24
+
+Completed in this pass:
+
+- Replaced the `/journal` placeholder with a static local-state journal and history timeline.
+- Added create, edit, delete, mood/energy tagging, gratitude marking, and optional intention link text.
+- Added local search, mood/energy filtering, and gratitude-only filtering.
+- Added reusable journal components for composer, filters, timeline, cards, mood/energy tags, and gratitude markers.
+- Preserved calm dark modular UI and grounded, non-promissory language.
+
+Validation:
+
+- `npm.cmd run typecheck` passed.
+- `npm.cmd run lint` passed.
+- `npm.cmd run build` passed.
+- `git diff --check` passed.
+
+Explicitly not implemented:
+
+- No AI logic or model calls.
+- No authentication.
+- No API routes.
+- No database access or persistence.
+- No Supabase integration.
+- No payments.
+- No notifications.
+- No new major dependencies.
+
+Documentation drift:
+
+- None discovered.
